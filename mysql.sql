@@ -113,29 +113,43 @@ insert into users (name,email,team,score,created) values
 ;
 
 ◆確認用
+◆◆すべて表示させる
 select * from users;
 
+◆◆!=の後以外を表示させる
 select * from users where score != 5.5;
 
+◆◆<>の後以外を表示させる
 select * from users where score <> 5.5;
 
-select * from users where team <> 'red';
-
-select * from users where created <> '2011-06-01 11:00:00';
-
+◆◆あいまい検索
 select * from users where email like '%@dotinstall.com';
 
+◆◆あいまい検索 _これで文字数を指定している　
 select * from users where email like '%@dotinstall.__';
 
+◆◆範囲の指定　between
 select * from users where score between 5.0 and 8.0;
+
+◆◆範囲の指定　in（予め設定した範囲内にあるか）
 select * from users where team in ('red', 'yellow');
+
+◆◆応用
 select * from users where score >= 4.0 and team = 'blue';
 select * from users where score >= 4.0 or team = 'blue';
+
+◆◆並び替え スコア順に並び替える
 select * from users order by score;
+
+◆◆並び替え スコア順に並び替える　逆に表示させる
 select * from users order by score desc;
 select * from users order by name desc;
+
+◆◆並び替え　件数の指定
 select * from users limit 3;
 select * from users limit 2, 2;
+
+◆◆並び替え　スコアの大きい順　上から3つ
 select * from users order by score desc limit 3;
 
 
